@@ -50,3 +50,19 @@ for index in range(len(xtest)):
 '''
 **********CREATE A VISUAL OF THE RESULTS**********
 '''
+#sets the size of the graph
+plt.figure(figsize=(5,4))
+
+#creates a scatter plot and labels the axes
+plt.scatter(xtrain,ytrain, c="purple", label="Training Data")
+plt.scatter(xtest, ytest, c="blue", label="Testing Data")
+
+plt.scatter(xtest, predict, c="red", label="Predictions")
+
+plt.xlabel("Age (Years)")
+plt.ylabel("Blood Pressure (mmHg)")
+plt.title("Blood Pressure vs Age")
+plt.plot(x, coef*x + intercept, c="r", label="Line of Best Fit")
+
+plt.legend()
+plt.show()
