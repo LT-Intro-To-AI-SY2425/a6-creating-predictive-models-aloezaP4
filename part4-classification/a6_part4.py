@@ -22,10 +22,26 @@ model = linear_model.LogisticRegression().fit(xTraining,yTraining)
 # Step 6: Create a LogsiticRegression object and fit the data
 #done above on the same line
 # Step 7: Print the score to see the accuracy of the model
-print("Accuracy:", model.score(xTest,yTest))
+print("Score:", model.score(xTest,yTest))
 print("*************")
 print("Testing Results:")
-print("")
-
+print(yTest)
 # Step 8: Print out the actual ytest values and predicted y values
 # based on the xtest data
+for index in range(len(xTest)):
+    x = xTest[index]
+    x = x.reshape(-1, 3)
+    print(x)
+    y_pred = int(model.predict(x))
+    if y_pred == 0:
+        y_pred = "Male"
+    else: 
+        y_pred = "Female"
+    
+    actual = yTest[index]
+    if actual == 0:
+        actual = "Male"
+    else:
+        actual = "Female"
+    print("Predicted Gender: " + y_pred + " Actual Gender: " + actual)
+    print("")
